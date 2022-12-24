@@ -29,3 +29,14 @@ function getSaleItems(data) {
 	return shoppingCart.filter((item) => item.type == 'sweet');
 }
 console.log(getSaleItems(products));
+
+// Refactor
+function getSaleItems2(data) {
+	let shoppingCart = data
+		.filter((product) => product.type === 'sweet')
+		.map((product) => {
+			return { item: product.item, price: product.price };
+		});
+	return shoppingCart;
+}
+console.log(getSaleItems2(products));
